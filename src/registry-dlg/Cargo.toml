@@ -1,0 +1,21 @@
+[package]
+name = "ic-registry-dlg"
+version = "0.1.0"
+edition = "2021"
+description = "The Windows registry as a view document the host renders"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+ic-plugin-api = { workspace = true }
+serde_json = { workspace = true }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+winreg = "0.52"
+
+[features]
+default = ["export-abi"]
+export-abi = []
