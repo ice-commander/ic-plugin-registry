@@ -67,9 +67,8 @@ No extensions, filesystems or locale catalogues.
   cannot be edited.
 - The asset `registry` is registered but nothing refers to it by name; the
   toolbar button is given the same SVG directly.
-- On Linux and macOS the library builds and loads and the button and the view
-  appear, but the tree is empty and the status line says "the registry is a
-  Windows thing".
+- On Linux and macOS the library builds, but `init` answers `IC_ERR_NOT_THIS_HOST`:
+  the application skips it quietly, and no button or view appears.
 
 ## Building
 

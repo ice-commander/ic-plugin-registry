@@ -11,7 +11,7 @@ checksum = "4e7648175b45a9a48536d676f68d918270699102aa8dab5496df06904c914600"
 [[package]]
 name = "ic-plugin-api"
 version = "0.1.0"
-source = "git+https://github.com/ice-commander/plugin-api.git?branch=main#220ac6040cf64553c82816e406fb397a117af4c4"
+source = "git+https://github.com/ice-commander/plugin-api.git?branch=main#c576bba71f972bea95bf77d9eca587e1afe9db70"
 
 [[package]]
 name = "ic-registry-dlg"

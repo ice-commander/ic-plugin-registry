@@ -1,3 +1,5 @@
 /target
 /bin/*
 !/bin/.gitkeep
+/distr
+/release-notes.md

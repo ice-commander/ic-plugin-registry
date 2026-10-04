@@ -2,6 +2,6 @@
 // A macro, not a const: `concat!` needs a literal to append the NUL that ic_plugin_version returns.
 macro_rules! plugins_version {
     () => {
-        "0.0"
+        "0.1.0"
     };
 }

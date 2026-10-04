@@ -6,7 +6,7 @@ mod registry;
 
 use ic_plugin_api::{
     check_host, HostCheck, IcBytes, IcHost, IcViewVTable, IC_ABI_VERSION, IC_ENABLE_ALWAYS,
-    IC_ERR_HOST_TOO_OLD, IC_ERR_HOST_UNKNOWN, IC_ERR_INIT_FAILED, IC_HOST_GTK, IC_OK,
+    IC_ERR_HOST_TOO_OLD, IC_ERR_HOST_UNKNOWN, IC_ERR_INIT_FAILED, IC_ERR_NOT_THIS_HOST, IC_HOST_GTK, IC_OK,
     IC_SIDE_RIGHT,
 };
 use serde_json::{json, Value};
@@ -600,6 +600,9 @@ pub extern "C" fn ic_plugin_init(host: *const IcHost, kind: *const c_char) -> c_
         HostCheck::Ok => {}
         HostCheck::WrongMagic => return IC_ERR_HOST_UNKNOWN,
         HostCheck::TooOld { .. } | HostCheck::Truncated { .. } => return IC_ERR_HOST_TOO_OLD,
+    }
+    if !cfg!(target_os = "windows") {
+        return IC_ERR_NOT_THIS_HOST;
     }
     HOST.store(host as usize, Ordering::Relaxed);
 
